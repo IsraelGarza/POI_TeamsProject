@@ -1,0 +1,5 @@
+package com.poiproject.chatserver.controller;
+
+public enum Status {
+
+}

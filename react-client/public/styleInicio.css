@@ -1,0 +1,354 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+.vertical-nav {
+    min-width: 6rem;
+    width: 6rem;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+    padding-top: 150px !important;
+  }
+  
+  .page-content {
+    width: calc(100% - 15rem);
+    margin-left: 17rem;
+    transition: all 0.4s;
+  }
+
+  #sidebar{
+    background-color: #f9a826 !important;
+    font-family: 'Inter', sans-serif !important;
+    padding-top: 100px;
+  }
+  
+  /* for toggle behavior */
+  
+  #sidebar.active {
+    margin-left: -17rem;
+  }
+  
+  #content.active {
+    width: 100%;
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    #sidebar {
+      margin-left: -17rem;
+    }
+    #sidebar.active {
+      margin-left: 0;
+    }
+    #content {
+      width: 100%;
+      margin: 0;
+    }
+    #content.active {
+      margin-left: 17rem;
+      width: calc(100% - 17rem);
+    }
+  }
+  
+  
+  body {
+    background: #599fd9;
+    background: -webkit-linear-gradient(to right, #599fd9, #c2e59c);
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+  
+  .separator {
+    margin: 3rem 0;
+    border-bottom: 1px dashed #fff;
+  }
+  
+  .text-uppercase {
+    letter-spacing: 0.1em;
+  }
+  
+  .text-gray {
+    color: #aaa;
+  }
+
+  #nav-bar-chat > li > a > i{
+    color: #3f3d56 !important;
+    margin-bottom: 45px;
+    transition: 0.5s ease;
+  }
+  #nav-bar-chat > li > a > i:hover{
+    color: white !important;
+    transition: 0.5s ease;
+
+  }
+
+  .selected-button{
+    color: white !important;
+  }
+  .fa{
+    transform: scale(2.5);
+  }
+  
+  #profile-picture{
+    margin-top: 120px;
+  }
+
+  #mensajes-lista{
+    padding-left: 110px;
+    height: 100vh;
+    background-color: #3f3d56 !important;
+    font-family: 'Inter', sans-serif;
+    padding-right: 20px;
+    overflow-y: scroll;
+  }
+  #mensajes-lista::-webkit-scrollbar{
+    display: none;
+  }
+  #nuevo-mensaje{
+    position: relative;
+    color: #f9a826 !important;
+    transition: 0.5s ease;
+
+  }
+  #nuevo-mensaje:hover{
+    color: #3f4d6a !important;
+    transition: 0.5s ease;
+    cursor: pointer;
+  }
+  #buscar-mensaje{
+    font-family: 'Inter', sans-serif;
+    border-radius: 10px;
+    font-weight:600;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #EBEBEB;
+    border: none;
+    outline: none;
+    color: #ADADAD;
+    width: 100%;
+  }
+  #titulo-mensajes{
+    margin-top: 60px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: #ADADAD;
+  }
+
+  /* template de cards para mensajes */
+
+  .card-mensaje{
+    position: relative;
+    height: 120px;
+    background-color: white;
+    padding: 20px;
+    transition: 0.2s ease-in-out;
+
+  }
+  .card-mensaje:hover{
+    transform: scale(1.02);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+    background-color: #F4F4F4;
+  }
+  .selected{
+    background-color: #F4F4F4;
+
+  }
+  .status{
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin-top: 55px;
+    border: 4px solid white;
+  }
+
+  .online{
+    background-color: #00AD30;
+  }
+
+  .offline{
+    background-color: #CECECE;
+  }
+
+  .busy{
+    background-color: #BC0000;
+
+  }
+  
+  .nombre-mensaje{
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    margin-top: -70px;
+    margin-left: 100px;
+    font-size: large;
+  }
+  .mensaje-card{
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    margin-top: -40px;
+    margin-left: 100px;
+    font-size: small;
+  }
+  .hora-mensaje{
+    position: absolute;
+    font-family: 'Inter', sans-serif;
+    font-weight: 200;
+    margin-top: -68px;
+    right: 10px;
+    font-size: x-small;
+  }
+  .mensaje-unread{
+    position: absolute;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin-top: -39px;
+    right: 15px;
+    background-color: #6E85B7;
+  }
+/*termina template de cards para mensajes */
+
+.titulo-nombre{
+    font-family: 'Inter', sans-serif;
+    height: 120px;
+    background: f9a826;
+    padding-top: 30px;
+}
+
+.titulo-nombre > h2{
+    position: absolute;
+    margin-left: 110px;
+    font-weight: 700;
+    font-size: x-large;
+}
+.titulo-nombre > p{
+    position: absolute;
+    margin-left: 110px;
+    font-weight: 700;
+    font-size: medium;
+    margin-top: 30px;
+    color: #C0C0C0;
+}
+
+
+.titulo-nombre > img{
+    position: absolute;
+    margin-top: -10px;
+}
+
+.fa-video{
+    position: relative;
+    margin-top: 20px;
+    transform: scale(2);
+    color: #f9a826;
+    transition: 0.5s ease;
+    right: -90%;
+
+}
+
+.fa-video:hover{
+    color: #3f4d6a !important;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+.fa-circle-info{
+    position: relative;
+    margin-top: 20px;
+    transform: scale(2);
+    color: #f9a826;
+    transition: 0.5s ease;
+    right: -95%;
+
+}
+
+.fa-circle-info:hover{
+    color: #3f4d6a !important;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.mensajes-container{
+    height: 500px;
+    width: 100%;
+    padding: 20px;
+    overflow-y: scroll;
+    background-color: #f4f4f4;
+}
+.mensajes-container::-webkit-scrollbar{
+  display: none;
+}
+
+/* card de mensajes */
+.mensaje-recibido-card{
+  height: 100px;
+  position: relative;
+  
+}
+#mensaje-burbuja{
+  background-color: #f9a826;
+  position: relative;
+  padding: 15px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: small;
+  border-radius: 0px 20px 20px 20px;
+  margin-left: 70px;
+  margin-top: -50px;
+  width: 300px;
+}
+#hora-burbuja{
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  font-size: x-small;
+  margin-left: 85px;
+  margin-top: -80px;
+
+}
+.mensaje-recibido-card > img{
+  position: relative;
+}
+/* termina card de mensajes recibidos */
+
+
+.escribir-mensaje{
+    height: auto;
+    width: 100%;
+    background-color: #f9a826;
+    padding: 40px;
+}
+.escribir-mensaje > textarea{
+  border-radius: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #F0F0F0;
+  font-family: 'Inter', sans-serif;
+  font-size: small;
+  resize: none;
+  outline: none;
+  width: 90%;
+}
+.escribir-mensaje > a > i{
+  position: relative;
+  transform: scale(1.5);
+  color: #6E85B7;
+  text-decoration: none;
+  border: none;
+  top: -15px;
+  margin-left: 20px;
+  transition: 0.2s ease-in-out;
+}
+.escribir-mensaje > a > i:hover{
+  color: #242c3c;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.6);
+}
+.escribir-mensaje > a{
+  text-decoration: none;
+
+}
