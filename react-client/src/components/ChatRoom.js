@@ -40,6 +40,7 @@ const ChatRoom = () => {
 
     const onMessageReceived = (payload)=>{
         var payloadData = JSON.parse(payload.body);
+        console.log(payloadData);
         switch(payloadData.status){
             case "JOIN":
                 if(!privateChats.get(payloadData.senderName)){
@@ -90,19 +91,6 @@ const ChatRoom = () => {
             }
     }
 
-    const sendPublicMessage=()=>{
-        if (stompClient) {
-          var chatMessage = {
-            senderName: userData.username,
-            receiverName:tab,
-            message: userData.message,
-            status:"MESSAGE"
-          };
-          stompClient.send("/app/message", {}, JSON.stringify(chatMessage));
-          setUserData({...userData,"message": ""});
-        }
-    }
-
     const sendPrivateValue=()=>{
         if (stompClient) {
           var chatMessage = {
@@ -143,22 +131,22 @@ const ChatRoom = () => {
                         <h5 className="text-white pb-2 mt-0" id="titulo-mensajes">Mis Contactos</h5>
                         <ul>
                             <li onClick={()=>{setTab("CHATROOM")}} className={`member ${tab==="CHATROOM" && "active"}`}>Chat Global</li>
-                            {[...privateChats.keys()].map((name,index)=>(
-                                <li onClick={()=>{setTab(name)}} className={`member ${tab===name && "active"}`} key={index}>{name}</li>
-                            ))}
+                            {[...privateChats.keys()].map((name,index)=>{
+                                return <li onClick={()=>{setTab(name)}} className={`member ${tab===name && "active"}`} key={index}>{name}</li>}
+                            )}
                         </ul>
                     </div>
 
 
                     {tab==="CHATROOM" && <div className="chat-content">
                         <ul className="chat-messages mensajes-container pt-5">
-                            {publicChats.map((chat,index)=>(
-                                <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
+                            {publicChats.map((chat,index)=>{
+                                return <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
                                     {chat.senderName !== userData.username && <div className="avatar">{chat.senderName}</div>}
                                     <div className="message-data">{chat.message}</div>
                                     {chat.senderName === userData.username && <div className="avatar self">{chat.senderName}</div>}
                                 </li>
-                            ))}
+                        })}
                         </ul>
 
                         <div className="send-message">
@@ -171,18 +159,18 @@ const ChatRoom = () => {
 
                     {tab!=="CHATROOM" && <div className="chat-content">
                         <ul className="chat-messages mensajes-container pt-5">
-                            {[...privateChats.get(tab)].map((chat,index)=>(
-                                <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
+                            {[...privateChats.get(tab)].map((chat,index)=>{
+                                return <li className={`message ${chat.senderName === userData.username && "self"}`} key={index}>
                                     {chat.senderName !== userData.username && <div className="avatar">{chat.senderName}</div>}
                                     <div className="message-data">{chat.message}</div>
                                     {chat.senderName === userData.username && <div className="avatar self">{chat.senderName}</div>}
                                 </li>
-                            ))}
+                        })}
                         </ul>
 
                         <div className="send-message">
-                            <input type="text" className="input-message" placeholder="Ingresa un mensaje privado para " value={userData.message} onChange={handleMessage} /> 
-                            <button type="button" className="btn btn-dark mx-2 px-4" onClick={sendValue}>Enviar</button>
+                            <input type="text" className="input-message form-control" placeholder="Ingresa un mensaje privado..." value={userData.message} onChange={handleMessage} /> 
+                            <button type="button" className="btn btn-dark mx-2 px-4" onClick={sendPrivateValue}>Enviar</button>
                             <button type="button" className="btn btn-dark"><i className="fa-solid fa-paperclip"></i></button>
                         </div>
                     </div>}
