@@ -1,0 +1,21 @@
+		*********************************
+		      MSTeams Chat App | POI
+		*********************************
+Para ejecutar el proyecto es necesario abrir la consola ubicada en 
+la carpeta del proyecto y poner los siguientes comandos:
+
+-npm install @ant-deign/icons axios react-chat-engine
+
+
+Una vez que finalice de instalar los modulos de Node poner:
+
+-npm start
+
+Los usuarios registrados son:
+-admin (Admin. del Public Chat)
+-IsraelGarza
+-JoseCastillo
+-barbara
+-AdrianRom
+
+Todas las contraseñas son "123123" sin las comillas.

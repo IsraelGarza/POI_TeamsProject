@@ -1,5 +1,0 @@
-package com.poiproject.chatserver.controller.model;
-
-public class Message {
-
-}
